@@ -65,7 +65,7 @@ Front-end Folder Structuring, Edamam API
 ### Future Features (had more developmental time been given)
 
 - Ability to plan meals throughout the year using a Calendar Datepicker
-- <Private> & <Redirect> for Private Paths
+- Built in React features (Private & Redirect) for user flow.
 - Full Edamam API Paid Benefits
   _(additional diet, health and allergy filters, 1000 results per call, unlimited calls per minute)_
 
