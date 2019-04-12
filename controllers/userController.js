@@ -5,7 +5,6 @@ let preferences;
 const client = require("twilio")(config.accountSid, config.authToken);
 const nodemailer = require("nodemailer");
 
-// Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
     db.User.findOne({ email: req.params.user })
@@ -56,8 +55,8 @@ module.exports = {
     }
 
     const apiURL = "https://api.edamam.com/search?";
-    const apiKey = "&app_key=f6179a854d5788d08869b56fcda3ecc2";
-    const apiID = "&app_id=726e9cff";
+    const apiKey = "&app_key=71473ff8952bb7da30bc7a2f30cb6e51";
+    const apiID = "&app_id=f7341c7d";
     let searchRange =
       "&from=" + req.body.fromNumber + "&to=" + req.body.toNumber;
     let query = "q=" + req.body.searchQuery;
@@ -98,26 +97,23 @@ module.exports = {
     });
   },
   updateMeal: function(req, res) {
-
     let day = req.body.day;
     let meal = req.body.meal;
     let recipe = req.body.recipe;
     let mealPath = "weeklymenu." + day + "." + meal;
-    // console.log(req.body);
-      db.User.findOneAndUpdate(
-        { email: req.params.user },
-        { $set: { [mealPath]: recipe } },
-        (err, dbMeal) => {
-          if (err) {
-            res.json(err);
-          } else {
-            res.json("meal changed");
-          }
+    db.User.findOneAndUpdate(
+      { email: req.params.user },
+      { $set: { [mealPath]: recipe } },
+      (err, dbMeal) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json("meal changed");
         }
-      );
+      }
+    );
   },
   updateMenu: function(req, res) {
-    //console.log(req.body.weeklyMenu);
     db.User.findOneAndUpdate(
       { email: req.params.user },
       { weeklymenu: req.body.weeklyMenu }
@@ -204,32 +200,4 @@ module.exports = {
       );
     }
   }
-
-  // updateWeekMealsFavorites: function(req, res) {
-  //   db.Book.findOneAndUpdate({ email: req.body.email })
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // },
-  // findById: function(req, res) {
-  //   db.Book.findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // create: function(req, res) {
-  //   db.User.create(req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
-  // update: function(req, res) {
-  //   db.Book.findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-  // remove: function(req, res) {
-  //   db.Book.findById({ _id: req.params.id })
-  //     .then(dbModel => dbModel.remove())
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
 };
