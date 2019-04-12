@@ -16,7 +16,7 @@ to their phone/email. _It's that easy!_
 
 ### Link to Website
 
-https://my-recipedia.com/
+https://recipedia-davidpadilla.herokuapp.com/
 
 **Browser compatibility checked with:**
 
@@ -37,9 +37,9 @@ Drag & Drop Functionality
 
 Material-UI
 
-Optimizing conditional components based on user state - Registered/Guest
+Conditional Components for Members & Guests
 
-Sending Data from Child to Parent Components
+React _(prop drilling, etc.)_
 
 ### Team Contributions
 
@@ -65,7 +65,7 @@ Front-end Folder Structuring, Edamam API
 ### Future Features (had more developmental time been given)
 
 - Ability to plan meals throughout the year using a Calendar Datepicker
-- Private Router for rediecting user paths
+- <Private> & <Redirect> for Private Paths
 - Full Edamam API Paid Benefits
   _(additional diet, health and allergy filters, 1000 results per call, unlimited calls per minute)_
 
